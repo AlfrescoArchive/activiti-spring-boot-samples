@@ -14,12 +14,13 @@ import org.springframework.context.annotation.Bean;
  */
 @SpringBootApplication
 public class Application {
-
+	
     @Bean
     InitializingBean usersAndGroupsInitializer(final IdentityService identityService) {
 
         return new InitializingBean() {
-            @Override
+        	
+        	@Override
             public void afterPropertiesSet() throws Exception {
 
                 // install groups & users
@@ -28,20 +29,20 @@ public class Application {
                 group.setType("security-role");
                 identityService.saveGroup(group);
 
-                User joram = identityService.newUser("jbarrez");
-                joram.setFirstName("Joram");
-                joram.setLastName("Barrez");
-                joram.setPassword("password");
+                User joram = identityService.newUser("BadGuy");
+                joram.setFirstName("Anakin");
+                joram.setLastName("Skywalker");
+                joram.setPassword("usetheforce");
                 identityService.saveUser(joram);
 
-                User josh = identityService.newUser("jlong");
-                josh.setFirstName("Josh");
-                josh.setLastName("Long");
-                josh.setPassword("password");
+                User josh = identityService.newUser("Queen");
+                josh.setFirstName("Padme");
+                josh.setLastName("Amidala");
+                josh.setPassword("usetheforce");
                 identityService.saveUser(josh);
 
-                identityService.createMembership("jbarrez", "user");
-                identityService.createMembership("jlong", "user");
+                identityService.createMembership("BadGuy", "user");
+                identityService.createMembership("Queen", "user");
             }
         };
     }
