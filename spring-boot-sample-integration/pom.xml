@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
 	<properties>
-		<activiti.version>5.21.0.2</activiti.version>
+		<activiti.version>5.21.0.3</activiti.version>
 		<java.version>1.8</java.version>
 	</properties>
 
